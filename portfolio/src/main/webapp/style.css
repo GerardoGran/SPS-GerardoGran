@@ -1,9 +1,83 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono:wght@500&display=swap');
+html {padding: 0;}
+
+a {
+    color: rgb(65, 94, 187);
 }
 
-#greeting-container {
-  margin-top: 20px;
+p {
+    font-size: 1.4em;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(50, 56, 68);
+    color: azure;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2.7em;
+}
+
+h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2.2em;
+    margin: 0.2em
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 15vw 20vw auto 20vw 15vw;
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-row-gap: 1em;
+}
+
+.grid-element {
+    display: inline-grid;
+}
+
+.header {
+    grid-column: 1/6;
+    grid-row: 1/2;
+    padding: 4rem;
+}
+
+.content {
+    grid-column: 2/5;
+}
+
+.card {
+    position: relative;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 8px 8px 8px 8px;
+    background-color: rgb(36, 42, 54);
+    padding: 2.5em;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.circle-img {
+    float: left;
+    position: relative;
+    border-radius: 50%;
+    margin-left: -7%;
+    margin-top: -7%;
+    margin-bottom: 1em;
+    margin-right: 1em;
+    width: 20%;
+    height: auto;
+    border:3px solid rgb(64, 71, 83);
+    -moz-box-shadow: 0px 6px 5px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 6px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 6px 5px rgba(0,0,0,0.2);
+}
+
+.icon {
+    width: 2em; 
+    height: auto; 
+    margin-right: 2em;
 }
