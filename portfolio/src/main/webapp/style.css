@@ -44,6 +44,11 @@ h2 {
     padding: 4rem;
 }
 
+.footer {
+    grid-column: 1/6;
+    padding: 4rem;
+}
+
 .content {
     grid-column: 2/5;
 }
