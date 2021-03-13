@@ -34,3 +34,13 @@ async function fetchHardCodedString() {
     const responseContainer = document.getElementById('response-container');
     responseContainer.innerText = textFromResponse;
 }
+
+async function displayRandomMusical() {
+    const response = await fetch("/random-album");
+    const musicalJSON = await response.json()
+
+    randomMusical = musicalJSON[Math.floor(Math.random() * musicalJSON.length)]
+
+    const musicalElement = document.getElementById('musical-name');
+    musicalElement.innerText = randomMusical;
+}

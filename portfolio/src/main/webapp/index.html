@@ -7,21 +7,20 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <svg style="position: absolute;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <svg style="position: absolute; z-index: 0;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path fill="#273036" fill-opacity="1" d="M0,128L40,133.3C80,139,160,149,240,181.3C320,213,400,267,480,266.7C560,267,640,213,720,197.3C800,181,880,203,960,213.3C1040,224,1120,224,1200,229.3C1280,235,1360,245,1400,250.7L1440,256L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
     </svg>
-      <div class="grid-container">
-          <div class="header"></div>
-
+    <div class="grid-container">
+        <div class="header"></div>
         <div id="about-me" class="content card">
             <img class="circle-img" src="images/Michi.jpeg">
             <h1 style="text-align: right;">Hi. My name is Gerardo Granados.</h1>
             <p>I'm a Computer Science student in my <b>6th</b> semester.</p>
             <p>I have experience in RESTful APIs, Database Design, Software Engineering practices, Scientific Research, and Mathematical Modeling</p>
             <h3 style="font-size: 2em;">Get in contact!</h2>
-                <a target="_blank" href="https://github.com/GerardoGran"><img class="icon" src="images/GITHUB-logo.png"></a>
-                <a target="_blank" href="https://www.linkedin.com/in/gerardo-granados-aldaz/"><img class="icon" src="images/LINKEDIN-logo.png"></a>
-                <a target="_blank" href="mailto:gerardograal@gmail.com"><img class="icon" src="images/MAIL-icon.png"></a>
+            <a target="_blank" href="https://github.com/GerardoGran"><img class="icon" src="images/GITHUB-logo.png"></a>
+            <a target="_blank" href="https://www.linkedin.com/in/gerardo-granados-aldaz/"><img class="icon" src="images/LINKEDIN-logo.png"></a>
+            <a target="_blank" href="mailto:gerardograal@gmail.com"><img class="icon" src="images/MAIL-icon.png"></a>
         </div>  
         <h1 id="projects" class="content">Some of My Projects</h1>
         <div id="iGEM" class="content card">
@@ -38,6 +37,11 @@
         <h1 class="content">Click this button for a hardcoded string:</h1>
         <button class="content card" onclick="fetchHardCodedString()">Click me!</button>
         <p class="content" id="response-container"></p>
-        </div>
+        
+        <h1 class="content">I love musicals!</h1>
+        <p class="class content">Press the button to see the name of one of my favorite musicals!</p>
+        <button onclick="displayRandomMusical()" class="content card">Click!</button>
+        <h2 id="musical-name" class="content"></h2>
+    </div>
   </body>
 </html>
