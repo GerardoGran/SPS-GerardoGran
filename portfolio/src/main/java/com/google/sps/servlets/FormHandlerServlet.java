@@ -20,18 +20,15 @@ public class FormHandlerServlet extends HttpServlet {
     String messageText = request.getParameter("text-input");
     long timestamp = System.currentTimeMillis();
 
-    //Declare datatore-related objects and store message.
+    // Declare datatore-related objects and store message.
     Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
     KeyFactory keyFactory = datastore.newKeyFactory().setKind("Message");
-    FullEntity messageEntity =
-      Entity.newBuilder(keyFactory.newKey())
-        .set("messageText", messageText)
-        .set("timestamp", timestamp)
-        .build();
+    FullEntity messageEntity = Entity.newBuilder(keyFactory.newKey()).set("messageText", messageText)
+        .set("timestamp", timestamp).build();
     datastore.put(messageEntity);
-    
+
     // Write the value to the response so the user can see it.
-    response.getWriter().println("You submitted: " + textValue);
+    response.getWriter().println("You submitted: " + messageText);
 
     response.sendRedirect("/index.html");
   }
