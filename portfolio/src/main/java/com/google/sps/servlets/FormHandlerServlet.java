@@ -6,8 +6,6 @@ import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.FullEntity;
 import com.google.cloud.datastore.KeyFactory;
 import java.io.IOException;
-import java.security.KeyFactorySpi;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,11 +28,11 @@ public class FormHandlerServlet extends HttpServlet {
         .set("messageText", messageText)
         .set("timestamp", timestamp)
         .build();
-    datastore.put(taskEntity);
+    datastore.put(messageEntity);
     
-    response.sendRedirect("/index.html");
-
     // Write the value to the response so the user can see it.
     response.getWriter().println("You submitted: " + textValue);
+
+    response.sendRedirect("/index.html");
   }
 }
