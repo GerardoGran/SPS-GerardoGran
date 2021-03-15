@@ -12,35 +12,42 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+/** Fetches messages from the server and adds them to the DOM. */
+function loadMessages() {
+	fetch('/list-messages').then(response => response.json()).then((messages) => {
+		const messageListElement = document.getElementById('message-list');
+		messages.forEach((message) => {
+			messageListElement.appendChild(createMessageElement(message));
+		})
+	});
+}
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+/** Creates an element that represents a message, including its delete button. */
+function createMessageElement(message) {
+	const messageElement = document.createElement('li');
+	messageElement.className = 'msg sb3';
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+	const titleElement = document.createElement('span');
+	titleElement.innerText = message.messageText;
+
+	messageElement.appendChild(titleElement);
+	return messageElement;
 }
 
 async function fetchHardCodedString() {
-    const responseFromServer = await fetch('/hello-world');
-    const textFromResponse = await responseFromServer.text();
+	const responseFromServer = await fetch('/hello-world');
+	const textFromResponse = await responseFromServer.text();
 
-    const responseContainer = document.getElementById('response-container');
-    responseContainer.innerText = textFromResponse;
+	const responseContainer = document.getElementById('response-container');
+	responseContainer.innerText = textFromResponse;
 }
 
 async function displayRandomMusical() {
-    const response = await fetch("/random-album");
-    const musicalJSON = await response.json()
+	const response = await fetch("/random-album");
+	const musicalJSON = await response.json()
 
-    randomMusical = musicalJSON[Math.floor(Math.random() * musicalJSON.length)]
+	randomMusical = musicalJSON[Math.floor(Math.random() * musicalJSON.length)]
 
-    const musicalElement = document.getElementById('musical-name');
-    musicalElement.innerText = randomMusical;
+	const musicalElement = document.getElementById('musical-name');
+	musicalElement.innerText = randomMusical;
 }
