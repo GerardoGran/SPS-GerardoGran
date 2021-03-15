@@ -1,6 +1,8 @@
 package com.google.sps.servlets;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -13,26 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/random-album")
 public class MusicalListServlet extends HttpServlet {
 
-    ArrayList<String> faveMusicals;
+    ArrayList<String> faveMusicals = new ArrayList<>(Arrays.asList("The Book of Mormon", "Hamilton", "Hadestown","In the Heights", "Phantom of the Opera"));
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        faveMusicals = getFaveMusicals();
         Gson gson = new Gson();
         String musicalsJSON = gson.toJson(faveMusicals);
 
         response.setContentType("application/json;");
         response.getWriter().println(musicalsJSON);
     }
-
-    public ArrayList<String> getFaveMusicals() {
-        ArrayList<String> faveMusicals = new ArrayList<String>();
-        faveMusicals.add("The Book of Mormon");
-        faveMusicals.add("Hamilton");
-        faveMusicals.add("Hadestown");
-        faveMusicals.add("In the Heights");
-        faveMusicals.add("Phantom of the Opera");
-        return faveMusicals;
-    }
-
 }

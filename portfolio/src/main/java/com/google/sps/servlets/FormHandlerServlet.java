@@ -11,7 +11,6 @@ public class FormHandlerServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
     // Get the value entered in the form.
     String textValue = request.getParameter("text-input");
 
